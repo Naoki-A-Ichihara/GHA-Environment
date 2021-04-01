@@ -1,0 +1,10 @@
+name: bash test
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "BASH_VERSION: ${BASH_VERSION}"
