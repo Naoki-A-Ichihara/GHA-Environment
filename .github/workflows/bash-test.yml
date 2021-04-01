@@ -8,3 +8,66 @@ jobs:
     steps:
       - run: |
           echo "BASH_VERSION: ${BASH_VERSION}"
+
+      - run: |
+          set -o errexit
+
+          function processed_list_directory {
+            local directory_listing
+
+            directory_listing=$(ls -l "$1" 2> /dev/null)
+
+            if [[ $directory_listing == "total 0" ]]; then
+              echo "(empty directory)"
+            else
+              echo "$directory_listing"
+            fi
+          }
+
+          function main {
+            local processed_listing_tmp
+            local processed_listing_foo
+
+            processed_listing_tmp=$(processed_list_directory /tmp)
+
+            echo "Listing 1: $processed_listing_tmp"
+            echo
+
+            processed_listing_foo=$(processed_list_directory /foo)
+
+            echo "Listing 2: $processed_listing_foo"
+          }
+
+          main
+
+      - run: |
+          shopt -s inherit_errexit
+          set -o errexit
+
+          function processed_list_directory {
+            local directory_listing
+
+            directory_listing=$(ls -l "$1" 2> /dev/null)
+
+            if [[ $directory_listing == "total 0" ]]; then
+              echo "(empty directory)"
+            else
+              echo "$directory_listing"
+            fi
+          }
+
+          function main {
+            local processed_listing_tmp
+            local processed_listing_foo
+
+            processed_listing_tmp=$(processed_list_directory /tmp)
+
+            echo "Listing 1: $processed_listing_tmp"
+            echo
+
+            processed_listing_foo=$(processed_list_directory /foo)
+
+            echo "Listing 2: $processed_listing_foo"
+          }
+
+          main
