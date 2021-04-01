@@ -6,4 +6,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "BASH_VERSION: ${BASH_VERSION}"
+      - run: |
+          echo "BASH_VERSION: ${BASH_VERSION}"
