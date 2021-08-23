@@ -18,4 +18,5 @@ jobs:
             ls -ltra
             echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
             echo ${{ github.repository }}
+            git remote -v
             git rev-parse --show-toplevel
