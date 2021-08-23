@@ -17,4 +17,5 @@ jobs:
             pwd
             ls -ltra
             echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+            echo ${{ github.repository }}
             git rev-parse --show-toplevel
