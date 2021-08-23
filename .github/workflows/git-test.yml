@@ -10,5 +10,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run:
-        git rev-parse --show-toplevel
+      - name: STEP 999
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            git rev-parse --show-toplevel
