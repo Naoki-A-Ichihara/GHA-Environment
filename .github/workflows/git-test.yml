@@ -15,7 +15,8 @@ jobs:
         with:
           inlineScript: |
             pwd
-            basename -s .git "$(git config --get remote.origin.url)"
+            #basename -s .git "$(git config --get remote.origin.url)"
+            basename $(git config --get remote.origin.url) | cut -d. -f1
             ls -ltra
             echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
             echo ${{ github.repository }}
