@@ -14,6 +14,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
+            basename -s .git $(git config --get remote.origin.url)
             pwd
             ls -ltra
             echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
