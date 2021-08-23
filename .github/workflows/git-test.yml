@@ -16,4 +16,5 @@ jobs:
           inlineScript: |
             pwd
             ls -ltra
+            echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
             git rev-parse --show-toplevel
