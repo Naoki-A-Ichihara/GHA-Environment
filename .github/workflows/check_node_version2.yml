@@ -1,0 +1,10 @@
+name: check node version2
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - run: node --version
+      - run: node -p "process.versions.modules"
