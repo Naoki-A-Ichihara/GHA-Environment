@@ -1,6 +1,9 @@
 name: check node version
 on: workflow_dispatch
 
+env:
+  NODE_VERSION: 20
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -8,6 +11,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
       - run: node --version
       - run: node -p "process.versions.modules"
